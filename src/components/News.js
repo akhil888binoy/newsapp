@@ -6,7 +6,7 @@ export class News extends Component {
     return (
       <div>
         This is a News Component
-            <NewsItem></NewsItem>
+            <NewsItem title="my title" description="my description"></NewsItem>
             <NewsItem></NewsItem>
             <NewsItem></NewsItem>
             <NewsItem></NewsItem>
