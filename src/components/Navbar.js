@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 export class Navbar extends Component {
+  static propTypes = {}
 
   render() {
     return (
@@ -20,6 +21,7 @@ export class Navbar extends Component {
                     <a className="nav-link" href="/">About</a>
                     </li>
                 </ul>
+               
                 </div>
             </div>
             </nav>
