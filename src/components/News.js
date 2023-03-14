@@ -52,7 +52,7 @@ export default class News extends Component {
     console.log("render")
     return (
       <div className='container my-3'>
-        <h1> News App-Top Headlines</h1>
+        <h1 className="text-center"> News App-Top Headlines </h1>
         <div className="row">
           {this.state.articles.map((element)=>{
             return (
