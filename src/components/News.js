@@ -74,12 +74,12 @@ export default class News extends Component {
     console.log("render")
     return (
       <div className='container my-3'>
-        <h2> News App-Top Headlines</h2>
+        <h1> News App-Top Headlines</h1>
         <div className="row">
           {this.state.articles.map((element)=>{
             return (
               <div className="col-md-4 mb-3" key={element.url}>
-                <NewsItem  title={element.title ? element.title.slice(0,45): ""} description={element.description ? element.description.slice(0,88): ""} imageUrl={element.urlToImage} newsUrl= {element.url}></NewsItem>
+                <NewsItem  title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl= {element.url}></NewsItem>
               </div>
             );
           })}
