@@ -12,20 +12,20 @@ export default class App extends Component {
       <Router>
       <Navbar></Navbar>
       <Switch>
-        <Route  path="/">
-            <News pageSize={5} country="in" category="general"></News>
+        <Route exact path="/">
+            <News  key="general" pageSize={5} country="in" category="general"></News>
         </Route>
-        <Route  path="/Business">
-            <News pageSize={5} country="in" category="business"></News>
+        <Route exact path="/Business">
+            <News key="business"  pageSize={5} country="in" category="business"></News>
         </Route>
-        <Route  path="/Entertainment">
-            <News pageSize={5} country="in" category="entertainment"></News>
+        <Route exact path="/Entertainment">
+            <News  key="entertainment" pageSize={5} country="in" category="entertainment"></News>
         </Route>
-        <Route  path="/science">
-            <News pageSize={5} country="in" category="science"></News>
+        <Route exact path="/science">
+            <News  key="science" pageSize={5} country="in" category="science"></News>
         </Route>
-        <Route  path="/Health">
-            <News pageSize={5} country="in" category="health"></News>
+        <Route exact path="/Health">
+            <News  key="health" pageSize={5} country="in" category="health"></News>
         </Route>
       </Switch>   
       </Router>
