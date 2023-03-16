@@ -14,13 +14,17 @@ export default class News extends Component {
     pageSize: PropTypes.number,
     category: PropTypes.string,
   };
-  constructor() {
+  capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+  constructor(props) {
     super();
     this.state = {
       articles: [],
       loading: false,
       page: 1,
     };
+    document.title = `${this.capitalize(this.props.category)} - News App`;
   }
   async updateNews() {
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a8f8ad39a2fe4f12ae533499783c8674&page=${this.state.page}&pageSize=${this.props.pageSize}`;
@@ -35,16 +39,17 @@ export default class News extends Component {
     });
   }
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a8f8ad39a2fe4f12ae533499783c8674&page=1&pageSize=${this.props.pageSize}`;
-    this.setState({ loading: true });
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    console.log(data);
-    this.setState({
-      articles: parsedData.articles,
-      totalResults: parsedData.totalResults,
-      loading: false,
-    });
+    // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a8f8ad39a2fe4f12ae533499783c8674&page=1&pageSize=${this.props.pageSize}`;
+    // this.setState({ loading: true });
+    // let data = await fetch(url);
+    // let parsedData = await data.json();
+    // console.log(data);
+    // this.setState({
+    //   articles: parsedData.articles,
+    //   totalResults: parsedData.totalResults,
+    //   loading: false,
+    // });
+    this.updateNews();
   }
   handleNextClick = async () => {
     // console.log("next");
@@ -97,7 +102,10 @@ export default class News extends Component {
     console.log("render");
     return (
       <div className="container my-3">
-        <h1 className="text-center"> News App-Top Headlines </h1>
+        <h1 className="text-center">
+          {" "}
+          News App-Top {this.capitalize(this.props.category)} Headlines{" "}
+        </h1>
         {this.state.loading && <Spinner />}
         <div className="row">
           {!this.state.loading &&
